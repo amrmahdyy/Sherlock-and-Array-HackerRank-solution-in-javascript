@@ -1,0 +1,18 @@
+function sumArray(arr){
+    let sum=0;
+    for(let num of arr) sum+=num;
+    return sum;
+}
+function balancedSums(arr) {
+// return 'YES' if the array length is 1 as the there is no left or right of the number
+    if(arr.length==1) return 'YES'
+  let sum=sumArray(arr);
+  let left=0;
+  for(let index in arr){
+      sum-=arr[index];
+      // we first subtract the current index from sum and compare it to the left side as the sum represents here the right side of the array
+      if(left==sum) return 'YES'
+      left+=arr[index];
+  }
+  return 'NO'
+}
